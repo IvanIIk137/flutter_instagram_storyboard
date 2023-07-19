@@ -17,6 +17,8 @@ class StoryListView extends StatefulWidget {
   final bool safeAreaBottom;
   final double listHeight;
   final double buttonWidth;
+  final VoidCallback? onButtonPress;
+  final VoidCallback? onClose;
 
   const StoryListView({
     Key? key,
@@ -32,6 +34,8 @@ class StoryListView extends StatefulWidget {
     this.buttonWidth = 100.0,
     this.safeAreaTop = true,
     this.safeAreaBottom = true,
+    this.onButtonPress,
+    this.onClose,
   }) : super(key: key);
 
   @override
@@ -47,6 +51,9 @@ class _StoryListViewState extends State<StoryListView> {
   }
 
   void _onButtonPressed(StoryButtonData buttonData) {
+     if (widget.onButtonPress != null) {
+      widget.onButtonPress!();
+    }
     Navigator.of(context).push(
       StoryRoute(
         storyContainerSettings: StoryContainerSettings(
@@ -60,6 +67,9 @@ class _StoryListViewState extends State<StoryListView> {
         duration: buttonData.pageAnimationDuration,
       ),
     );
+     if (widget.onClose != null) {
+      widget.onClose!();
+    }
   }
 
   @override
