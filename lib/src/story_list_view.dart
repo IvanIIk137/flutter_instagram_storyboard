@@ -50,11 +50,11 @@ class _StoryListViewState extends State<StoryListView> {
     super.initState();
   }
 
-  void _onButtonPressed(StoryButtonData buttonData) {
+  void _onButtonPressed(StoryButtonData buttonData) async {
      if (widget.onButtonPress != null) {
       widget.onButtonPress!();
     }
-    Navigator.of(context).push(
+  await Navigator.of(context).push(
       StoryRoute(
         storyContainerSettings: StoryContainerSettings(
           buttonData: buttonData,
