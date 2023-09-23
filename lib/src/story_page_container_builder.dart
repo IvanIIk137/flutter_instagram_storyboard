@@ -218,8 +218,8 @@ class _StoryPageContainerBuilderState extends State<StoryPageContainerBuilder>
                   ),
                 ),
                 child: SafeArea(
-                  bottom: widget.settings.safeAreaBottom,
-                  top: widget.settings.safeAreaTop,
+                  bottom: false,
+                  top: false,
                   child: PageView.builder(
                     physics: _storyPageTransform.pageScrollPhysics,
                     controller: _pageController,
